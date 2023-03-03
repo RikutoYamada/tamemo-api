@@ -32,3 +32,7 @@
 /.env
 
 /auth
+
+localhost-key.pem
+
+localhost.pem
