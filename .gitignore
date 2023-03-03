@@ -30,3 +30,5 @@
 
 # Ignore environment variable
 /.env
+
+/auth
