@@ -13,6 +13,7 @@ AllCops:
     - 'db/**/*'
     - 'tmp/**/*'
     - 'vendor/**/*'
+    - 'config/**/*'
 
 # Allow Japanese comments
 Style/AsciiComments:
