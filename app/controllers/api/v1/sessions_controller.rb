@@ -1,19 +1,21 @@
 class Api::V1::SessionsController < ApplicationController
+  include ActionController::Cookies
   def create
     user = User.find_by(email: params[:email])&.authenticate(params[:password])
 
-    payload = {
-      iss: 'example_app',
-      sub: user.id,
-      exp: (DateTime.current + 14.days).to_i
+    token = jwt_encode(user.email)
+
+    cookies[:token] = {
+      value: token,
+      httponly: true
     }
 
-    rsa_private = OpenSSL::PKey::RSA.new(File.read(Rails.root.join('auth/service.key')))
+    render json: user, status: :created
+  end
 
-    token = JWT.encode(payload, rsa_private, 'RS256')
+  def destroy
+    cookies.delete :token
 
-    cookies[:token] = token
-
-    render status: :created
+    render status: :ok
   end
 end
