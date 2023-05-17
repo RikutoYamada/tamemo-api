@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_27_123630) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_16_132540) do
   create_table "expense_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_27_123630) do
 
   create_table "expenses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "category_id"
+    t.integer "expense_category_id"
     t.string "store"
     t.integer "amount"
     t.date "expended_at"

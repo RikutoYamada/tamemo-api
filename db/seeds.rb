@@ -11,6 +11,6 @@ end
   transportation_expense.children.create(user_id: 2, name:)
 end
 
-rikuto.expenses.create(category_id: 3, store: "コンビニ", amount: 500, expended_at: Date.today)
-rikuto.expenses.create(category_id: 5, store: "鳥貴族", amount: 3000, expended_at: Date.today)
-mei.expenses.create(category_id: 8, store: "コスモ石油", amount: 2500, expended_at: Date.today)
+rikuto.expenses.create(expense_category_id: 3, store: "コンビニ", amount: 500, expended_at: Date.today)
+rikuto.expenses.create(expense_category_id: 5, store: "鳥貴族", amount: 3000, expended_at: Date.today)
+mei.expenses.create(expense_category_id: 8, store: "コスモ石油", amount: 2500, expended_at: Date.today)
