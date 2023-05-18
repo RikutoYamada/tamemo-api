@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_16_132540) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_142325) do
   create_table "expense_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -20,13 +20,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_132540) do
   end
 
   create_table "expenses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "expense_category_id"
     t.string "store"
     t.integer "amount"
     t.date "expended_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "expense_category_id"
+    t.index ["expense_category_id"], name: "index_expenses_on_expense_category_id"
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -37,4 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_132540) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "expenses", "expense_categories"
+  add_foreign_key "expenses", "users"
 end
