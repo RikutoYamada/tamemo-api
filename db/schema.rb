@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_18_113938) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_27_123040) do
   create_table "expense_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "ancestry"
@@ -27,9 +27,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_113938) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "expense_category_id"
-    t.index ["expense_category_id"], name: "index_expenses_on_expense_category_id"
+    t.bigint "sub_expense_category_id", null: false
+    t.index ["sub_expense_category_id"], name: "index_expenses_on_sub_expense_category_id"
     t.index ["user_id"], name: "index_expenses_on_user_id"
+  end
+
+  create_table "sub_expense_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "main_expense_category_id", null: false
+    t.index ["user_id"], name: "index_sub_expense_categories_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -41,6 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_113938) do
   end
 
   add_foreign_key "expense_categories", "users"
-  add_foreign_key "expenses", "expense_categories"
   add_foreign_key "expenses", "users"
+  add_foreign_key "sub_expense_categories", "users"
 end
