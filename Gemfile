@@ -37,8 +37,6 @@ gem 'bcrypt'
 
 gem 'jwt'
 
-gem "ancestry"
-
 gem 'active_hash'
 
 group :development, :test do

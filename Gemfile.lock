@@ -68,8 +68,6 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-    ancestry (4.3.3)
-      activerecord (>= 5.2.6)
     ast (2.4.2)
     bcrypt (3.1.18)
     bootsnap (1.16.0)
@@ -197,7 +195,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
-  ancestry
   bcrypt
   bootsnap
   debug
