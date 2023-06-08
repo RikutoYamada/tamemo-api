@@ -13,5 +13,9 @@ class Api::V1::ExpensesController < ApplicationController
     render json: expenses_with_category
   end
 
-  def create; end
+  def create
+    expense = Expense.create(amount: params[:amount], store: params[:store], expended_at: params[:expended_at], user_id: params[:user_id], sub_expense_category_id: params[:sub_expense_category_id])
+
+    render json: expense, status: :created
+  end
 end
