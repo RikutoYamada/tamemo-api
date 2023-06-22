@@ -6,7 +6,7 @@ mei = User.create(name: "mei", email: "mei@gmail.com", password: "satomei", pass
 end
 
 %w[電車賃 タクシー代 ガソリン代].each do |name|
-  mei.sub_expense_categories.create(main_expense_category_id: 2, name:)
+  rikuto.sub_expense_categories.create(main_expense_category_id: 2, name:)
 end
 
 rikuto.expenses.create(sub_expense_category_id: 1, store: "コンビニ", amount: 500, expended_at: Date.today)
