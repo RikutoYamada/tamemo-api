@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_23_132033) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_24_135423) do
   create_table "expenses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "store"
+    t.string "detail"
     t.integer "amount"
     t.date "expended_at"
     t.bigint "user_id"
