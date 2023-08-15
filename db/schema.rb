@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_24_135423) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_31_122515) do
   create_table "expenses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "detail"
     t.integer "amount"
@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_135423) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_admin", default: false, null: false
   end
 
   add_foreign_key "expenses", "sub_expense_categories"
